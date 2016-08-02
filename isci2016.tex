@@ -53,6 +53,7 @@
 
 \documentclass[conference]{IEEEtran}
 \IEEEoverridecommandlockouts
+\usepackage{amsmath}
 % Some Computer Society conferences also require the compsoc mode option,
 % but others use the standard conference format.
 %
@@ -420,16 +421,46 @@ This results demonstrate the equivalent recognition capability comparing to the 
 	what's unique for the proposed method.
 	
 \section{Background Knowledge}
-\subsection{Autoencoders}
-
-\subsection{IF Neuron}
-
+\subsection{Unsupervised Learning}
+\subsubsection{Deep Learning}
+\subsubsection{Autoencoders}
+\subsubsection{Deep Belief Network}
+Pre-trained with RBM.
+\subsection{Spiking Neural Networks}
+\subsubsection{Spiking Neurons}
+\subsubsection{Coding Mechanism}
+\subsubsection{Network of Spiking Neurons}
 \subsection{STDP Learning}
 
 \section{Methods}
-\subsection{Training Spiking Autoencoders}
+%\subsection{Training Spiking Autoencoders}
+%
+%\subsection{Convergence Evaluation}
+\subsection{Training Autoencoders}
+Training an autoencoder is not different from backpropagation (BP) on an Multi-Layer Perceptrons(MLP).
+The objective of training is to minimise the prediction error of an MLP, which measured as a loss function.
+Accordingly, the loss function of an autoencoder can be described as:
+\begin{equation}
+L=\frac{1}{2}\sum_{k=1}^{K}\sum_{i=1}^{N}(x_{ki}-x^{'}_{ki})^{2}
+\end{equation}
+where k indicates the index of the training data $\textbf{x}_{k}$, and $x_{i}$ is the $i$th dimension of a data vector $\textbf{x}$.
 
-\subsection{Convergence Evaluation}
+%TODO rewording
+Backpropagation, an abbreviation for "backward propagation of errors", is a common method of training artificial neural networks used in conjunction with an optimization method such as gradient descent.
+The method calculates the gradient of a loss function with respect to all the weights in the network.
+The gradient is fed to the optimisation method which in turn uses it to update the weights, in an attempt to minimize the loss function:
+\begin{equation}
+\Delta w_i \propto -\frac{\partial L}{\partial w_i}.
+\end{equation}
+
+Applying stochastic gradient descent (SGD), the true gradient of $\Delta W$ is approximated by a gradient at a single example with iterations:
+\begin{align*}
+%\begin{spilt}
+E_k &= \frac{1}{2}\sum_{i=1}^{N}(x_{ki}-x^{'}_{ki})^{2}, \textrm{ thus} \\
+\Delta w_i &\propto -\frac{\partial E_k}{\partial w_i}=-\eta \frac{\partial E_k}{\partial w_i}.
+%\end{split}
+\end{align*}
+
 
 \section{Results}
 \subsection{Classify MNIST Digits}
