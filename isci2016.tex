@@ -118,7 +118,7 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+   \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -437,6 +437,12 @@ Pre-trained with RBM.
 %
 %\subsection{Convergence Evaluation}
 \subsection{Training Autoencoders}
+\begin{figure}
+	\centering
+		\includegraphics[width=0.4\textwidth]{pic/RBM.pdf}
+		\caption{A typical Autoencoder structure.}
+		\label{fig:AE}
+\end{figure}
 Training an autoencoder is not different from backpropagation (BP) on an Multi-Layer Perceptrons(MLP).
 The objective of training is to minimise the prediction error of an MLP, which measured as a loss function.
 Accordingly, the loss function of an autoencoder can be described as:
