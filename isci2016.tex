@@ -322,7 +322,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Biologically Plausible Training on \\ Rate-based Spiking Autoencoders}
+\title{STDP Training on Rate-based Spiking Autoencoders}
 
 
 % author names and affiliations
@@ -506,62 +506,230 @@ Pre-trained with RBM.
 	
 	Examples of using an autoencoder with 10 input neurons and 10 hidden neurons: reconstruction the input data $\mathbf{v}$ where I) $v_i = 1$, II) $v_i = i/10$.
 	\begin{figure}
-		\subfloat[Weights change in Exp1]{
+		\subfloat[Weights of Exp1]{
 			\centering
 			\includegraphics[width=0.25\textwidth]{exp1_weights_non}
-			\label{fig:exp1_weights_non}}
-		\subfloat[Weights change in Exp1]{
+		}
+		\subfloat[Weights of Exp2]{
 			\centering
 			\includegraphics[width=0.25\textwidth]{exp2_weights_non}
-			\label{fig:exp2_weights_non}}\\		
-		\subfloat[Weights change in Exp1]{
-				\centering
-				\includegraphics[width=0.25\textwidth]{exp1_recon_non}
-				\label{fig:exp1_recon_non}}
-		\subfloat[Weights change in Exp1]{
-				\centering
-				\includegraphics[width=0.25\textwidth]{exp2_recon_non}
-				\label{fig:exp2_recon_non}}\\
-		\subfloat[Weights change in Exp1]{
-				\centering
-				\includegraphics[width=0.25\textwidth]{exp1_hid_non}
-				\label{fig:exp1_hid_non}}
-		\subfloat[Weights change in Exp1]{
-				\centering
-				\includegraphics[width=0.25\textwidth]{exp2_hid_non}
-				\label{fig:exp2_hid_non}}										
-	\caption{Experiments 1 \& 2.}
+		}\\
+		\subfloat[Reconstruction of visible units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_recon_non}
+		}
+		\subfloat[Reconstruction of visible units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_recon_non}
+		}\\
+		\subfloat[Output of hidden units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_hid_non}
+		}
+		\subfloat[Output of hidden units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_hid_non}
+		}
+	\caption{Weights and outputs of visible and hidden units change during training of the reconstruction tests. 
+	Experiments 1) 10 visible units fully connected to 10 hidden units with input data of all 1s; 2) same network fed with 10 values distribute linearly from 0.1 to 1.}
 	\end{figure}
 	
 \subsection{Training Spiking Autoencoders}
-ReSuMe
+ReSuMe\\
+-Why it works stated in Maths.\\
+-Figure to plot
 
 Experiments
-
-\subsection{Problems}
-Solved Experiments:
 	\begin{figure}
-		\subfloat[Weights change in Exp1]{
+		\subfloat[Weights of Exp1]{
 			\centering
-			\includegraphics[width=0.25\textwidth]{exp1_weights_s_perfect}
-			\label{fig:exp1_weights_s_perfect}}\\
-		\subfloat[Weights change in Exp1]{
-				\centering
-				\includegraphics[width=0.25\textwidth]{exp1_recon_s_perfect}
-				\label{fig:exp1_recon_s_perfect}}\\
-		\subfloat[Weights change in Exp1]{
-				\centering
-				\includegraphics[width=0.25\textwidth]{exp1_hid_s_perfect}
-				\label{fig:exp1_hid_s_perfect}}										
-	\caption{Experiments 1 \& 2.}
+			\includegraphics[width=0.25\textwidth]{exp1_weights_s}
+		}
+		\subfloat[Weights of Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_weights_s}
+		}\\
+		\subfloat[Reconstruction of visible units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_recon_s}
+		}
+		\subfloat[Reconstruction of visible units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_recon_s}
+		}\\
+		\subfloat[Reconstruction of visible units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_recon_nons}
+		}
+		\subfloat[Reconstruction of visible units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_recon_nons}
+		}\\
+		\subfloat[Reconstruction of visible units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_hid_s}
+		}
+		\subfloat[Reconstruction of visible units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_hid_s}
+		}\\
+		\subfloat[Output of hidden units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_hid_nons}
+		}
+		\subfloat[Output of hidden units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_hid_nons}
+		}
+		\caption{Weights and firing rates of visible and hidden units change during training of the reconstruction tests of spiking neurons. 
+		Experiments 1) 10 visible units fully connected to 10 hidden units with Poisson spike trains of 100~Hz which lasted 100~ms; 2) same network fed with 10 Poisson spike trains of firing rate ranging from 10~Hz to 100~Hz.}
+	\end{figure}
+\subsection{Problem}
+Poisson noise make weights diverge.
+Same Poisson data used in non-spiking tests.
+	\begin{figure}
+		\subfloat[Weights of Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_weights_noisy}
+		}
+		\subfloat[Weights of Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_weights_noisy}
+		}\\
+		\subfloat[Reconstruction of visible units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_recon_noisy}
+		}
+		\subfloat[Reconstruction of visible units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_recon_noisy}
+		}\\
+		\subfloat[Output of hidden units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_hid_noisy}
+		}
+		\subfloat[Output of hidden units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_hid_noisy}
+		}
+		\caption{Weights and outputs of visible and hidden units change during training fed with noisy inputs. 
+		Experiments 1) 10 visible units fully connected to 10 hidden units with noisy input data of all 1s; 2) same network fed with noisy values distribute linearly from 0.1 to 1.}
+	\end{figure}
+	
+Decay learning rate.
+	\begin{figure}
+		\subfloat[Weights of Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_weights_noisy_decay}
+		}
+		\subfloat[Weights of Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_weights_noisy_decay}
+		}\\
+		\subfloat[Reconstruction of visible units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_recon_noisy_decay}
+		}
+		\subfloat[Reconstruction of visible units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_recon_noisy_decay}
+		}\\
+		\subfloat[Output of hidden units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_hid_noisy_decay}
+		}
+		\subfloat[Output of hidden units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_hid_noisy_decay}
+		}
+		\caption{Weights and outputs of visible and hidden units change during training using decayed learning rate. 
+			Experiments 1) 10 visible units fully connected to 10 hidden units with noisy input data of all 1s; 2) same network fed with noisy values distribute linearly from 0.1 to 1.}
+	\end{figure}
+	
+Decay learning rate in SNN.
+	\begin{figure}
+		\subfloat[Weights of Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_weights_s_decay}
+		}
+		\subfloat[Weights of Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_weights_s_decay}
+		}\\
+		\subfloat[Reconstruction of visible units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_recon_s_decay}
+		}
+		\subfloat[Reconstruction of visible units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_recon_s_decay}
+		}\\
+		\subfloat[Reconstruction of visible units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_recon_nons_decay}
+		}
+		\subfloat[Reconstruction of visible units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_recon_nons_decay}
+		}\\
+		\subfloat[Reconstruction of visible units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_hid_s_decay}
+		}
+		\subfloat[Reconstruction of visible units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_hid_s_decay}
+		}\\
+		\subfloat[Output of hidden units in Exp1]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp1_hid_nons_decay}
+		}
+		\subfloat[Output of hidden units in Exp2]{
+			\centering
+			\includegraphics[width=0.25\textwidth]{exp2_hid_nons_decay}
+		}
+		\caption{Weights and firing rates of visible and hidden units change during training of the reconstruction tests of spiking neurons. 
+			Experiments 1) 10 visible units fully connected to 10 hidden units with Poisson spike trains of 100~Hz which lasted 100~ms; 2) same network fed with 10 Poisson spike trains of firing rate ranging from 10~Hz to 100~Hz.}
+	\end{figure}
+\section{Results}
+\subsection{Trained weights}
+AE automatically extracts features.
+	\begin{figure}
+		\subfloat[Trained with 1000 Images]{
+			\centering
+			\includegraphics[width=0.5\textwidth]{weights_e0_1000}
+		}\\
+		\subfloat[Trained with 60000 Images]{
+			\centering
+			\includegraphics[width=0.5\textwidth]{weights_e0_60000}
+		}
+		\caption{Trained weights of MNIST training set.}
+	\end{figure}
+	
+\subsection{Reconstruction}
+AE reconstructs visible units.
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{recon_digit}
+		\caption{Reconstructions of a testing digit `2' using trained weights during training.}
+		\label{fig:recon}		
+	\end{figure}
+\subsection{Classification Performance}
+Compare CA of spiking AE with non-spiking continuous neurons. 
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{recog_comp}
+		\caption{Fast recognition with spiking neurons. Classification accuracy increases over presence period of an image.}
+		\label{fig:recog_comp}		
 	\end{figure}
 
-\section{Results}
-\subsection{Classify MNIST Digits}
-
-\subsection{Performance Evaluation}
-
-\subsection{Trained weights}
+Fast classification.
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{recog_speed}
+		\caption{Fast recognition with spiking neurons. Classification accuracy increases over presence period of an image.}
+		\label{fig:recog_speed}		
+	\end{figure}
 
 
 % An example of a floating figure using the graphicx package.
@@ -663,7 +831,7 @@ Solved Experiments:
 
 \section{Conclusion}
 The conclusion goes here.
-
+Discussion about why divergence appear.
 
 
 
