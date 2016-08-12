@@ -535,9 +535,16 @@ Pre-trained with RBM.
 	\end{figure}
 	
 \subsection{Training Spiking Autoencoders}
-ReSuMe\\
+Rate-based learning of STDP (rSTDP) which is inspired by ReSuMe.\\
 -Why it works stated in Maths.\\
 -Figure to plot
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{rSTDP}
+		\caption{How rSTDP works in training AutoEncoders.}
+		\label{fig:rSTDP}
+	\end{figure}
+
 
 Experiments
 	\begin{figure}
@@ -692,6 +699,13 @@ Decay learning rate in SNN.
 			Experiments 1) 10 visible units fully connected to 10 hidden units with Poisson spike trains of 100~Hz which lasted 100~ms; 2) same network fed with 10 Poisson spike trains of firing rate ranging from 10~Hz to 100~Hz.}
 	\end{figure}
 \section{Results}
+Autoencoders work as recognition.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\textwidth]{mnist}
+	\caption{One layer of Autoencoders work as a digit recogniser.}
+	\label{fig:mnist}		
+\end{figure}
 \subsection{Trained weights}
 AE automatically extracts features.
 	\begin{figure}
