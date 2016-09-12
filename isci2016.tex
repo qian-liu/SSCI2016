@@ -381,7 +381,7 @@ It provides a clue which may unveil the mechanism of neural processing in the br
 Therefore, it becomes a hot topic to train and operate deep learning on spiking neural networks(SNN) underline the more biologically realistic way.
 This paper proposed a supervised learning rule to train the Autoencoders of spiking neurons using Spike-Timing-Dependent Plasticity (STDP).
 A network of two-layer Autoencoders was trained on the MNIST database with Integrate-and-Fire (IF) neurons.
-This results demonstrate the equivalent recognition capability comparing to the non-spiking implementations and validate the training ability of the learning rule of the biologically plausible spiking neurons.
+This results demonstrate the equivalent recognition capability comparing to the non-spiking implementations and validate the training ability of the learning rule .
 
 \end{abstract}
 
@@ -493,7 +493,7 @@ Pre-trained with RBM.
 	\begin{equation}
 	\begin{aligned}
 	\Delta w_{ij} = -\eta \frac{\partial E_k}{\partial w_{ij}} &= -\eta \frac{\partial E_k}{\partial v'_j} \frac{\partial v'_j}{\partial net\_v'_j} \frac{\partial net\_v'_j}{\partial w_{ij}}, \textrm{ where} \\
-	\frac{\partial E_k}{\partial v'_j} &= \frac{\partial \frac{1}{2}(\mathbf{v}_k - \mathbf{v'}_k)^2}{\partial v'_j}= -(v'_j - v_j), \\
+	\frac{\partial E_k}{\partial v'_j} &= \frac{\partial \frac{1}{2}(\mathbf{v}_k - \mathbf{v'}_k)^2}{\partial v'_j}= -(v_j - v'_j), \\
 %	\frac{\partial v'_j}{\partial net\_v'_j} &= \begin{cases} 1, v'_j>0\\0, v'_j<=0\\ \end{cases}, \textrm{using ReLU,}\\
 	\frac{\partial v'_j}{\partial net\_v'_j} &= 1, \textrm{using Identify function,}\\
 	\frac{\partial net\_v'_j}{\partial w_{ij}} &= \frac{\partial h_i w_{ij}}{\partial w_{ij}} = h_i.
@@ -501,9 +501,16 @@ Pre-trained with RBM.
 	\end{equation}
 	Thus, the weight gradient is calculated as:
 	\begin{equation}
-	\Delta w_{ij} = \eta h_i(v'_j - v_j)
+	\Delta w_{ij} = \eta h_i(v_j - v'_j) = \eta (h_i v_j - h_i v'_j)
 	\end{equation}
-	
+	For RBMs:
+	\begin{equation}
+	\Delta w_{ij} = \eta (h_i v_j - h'_i v'_j)
+	\end{equation}
+	Energy of an Antoencoder:
+	\begin{equation}
+	H = \sum_{i}\sum_{j} v_i w_{ij} h_j.
+	\end{equation}
 	Examples of using an autoencoder with 10 input neurons and 10 hidden neurons: reconstruction the input data $\mathbf{v}$ where I) $v_i = 1$, II) $v_i = i/10$.
 	\begin{figure}
 		\subfloat[Weights of Exp1]{
@@ -537,6 +544,15 @@ Pre-trained with RBM.
 \subsection{Training Spiking Autoencoders}
 Rate-based learning of STDP (rSTDP) which is inspired by ReSuMe.\\
 -Why it works stated in Maths.\\
+	\begin{equation}
+	\begin{aligned}
+	\overline{\Delta w_{ij}} &= \eta' \lambda_{h_i}(\lambda_{v_j} - \lambda_{v'_j})\\
+	&=\eta'P_{h_i}P_{v_j}\tau_{w} \tau_{dur} - \eta'P_{h_i}P_{v'_j}\tau_{w} \tau_{dur}, \textrm{where,}\\
+	P_{s} &= \lambda_{s} \times 0.001~s = \frac{K s}{1000}\\
+	\eta' &= \frac{10^6}{K^2 \tau_{w} \tau_{dur}} \eta
+	\end{aligned}
+	\end{equation}
+	
 -Figure to plot
 	\begin{figure}
 		\centering
