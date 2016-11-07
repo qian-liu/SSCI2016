@@ -375,13 +375,13 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-How the brain works still remains a mystery and attracts researchers from various areas attempting to understand it.
-Nowadays, the exciting reports of the beating-human visual recognition and decision making have brought deep learning into the spotlight.
-It provides a clue which may unveil the mechanism of neural processing in the brain.
-Therefore, it becomes a hot topic to train and operate deep learning on spiking neural networks(SNN) underline the more biologically realistic way.
-This paper proposed a supervised learning rule to train the Autoencoders of spiking neurons using Spike-Timing-Dependent Plasticity (STDP).
-A network of two-layer Autoencoders was trained on the MNIST database with Integrate-and-Fire (IF) neurons.
-This results demonstrate the equivalent recognition capability comparing to the non-spiking implementations and validate the training ability of the learning rule .
+Understanding how the brain handles information remains a mystery and attracts the attention of researchers from many areas.
+Recently, exciting reports of visual recognition and decision making with better than human performance have brought deep learning into the spotlight.
+This provides a clue which may help unveil the mechanisms of neural processing in the brain.
+As a result, training and operate deep learning on spiking neural networks (SNNs) has become a hot topic as it offers a more biologically realistic approach to deep learning.
+This paper proposes an unsupervised learning rule to train spiking neuron autoencoders using Spike-Timing-Dependent Plasticity (STDP).
+A two-layer autoencoder network using Integrate-and-Fire (IF) neurons was trained on the MNIST database.
+The results show a recognition capability equivalent to non-spiking implementations and validate the training ability of the learning rule.
 
 \end{abstract}
 
@@ -546,7 +546,7 @@ Rate-based learning of STDP (rSTDP) which is inspired by ReSuMe.\\
 -Why it works stated in Maths.\\
 	\begin{equation}
 	\begin{aligned}
-	\overline{\Delta w_{ij}} &= \eta' \lambda_{h_i}(\lambda_{v_j} - \lambda_{v'_j})\\
+	\overline{\Delta w_{ij}} &\propto \eta \lambda_{h_i}(\lambda_{v_j} - \lambda_{v'_j})\\
 	&=\eta'P_{h_i}P_{v_j}\tau_{w} \tau_{dur} - \eta'P_{h_i}P_{v'_j}\tau_{w} \tau_{dur}, \textrm{where,}\\
 	P_{s} &= \lambda_{s} \times 0.001~s = \frac{K s}{1000}\\
 	\eta' &= \frac{10^6}{K^2 \tau_{w} \tau_{dur}} \eta
@@ -556,7 +556,7 @@ Rate-based learning of STDP (rSTDP) which is inspired by ReSuMe.\\
 -Figure to plot
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.5\textwidth]{rSTDP}
+		\includegraphics[width=0.45\textwidth]{rSTDP}
 		\caption{How rSTDP works in training AutoEncoders.}
 		\label{fig:rSTDP}
 	\end{figure}
