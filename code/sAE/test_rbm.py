@@ -27,11 +27,11 @@ with open(conf_file, 'rb') as handle:
 #test_conf['batch_size'] = 10
 train_all = 60000
 #step = 1000
-train_list =  [60000]
+train_list =  [1000, 10000, 20000, 30000, 40000, 50000, 60000]
 dur = test_conf['duration']
 np.random.seed(test_conf['seed'])
 train_l = 0
-for epoch in range(2,train_conf['epoch']):
+for epoch in range(0,train_conf['epoch']):
     for train_num in train_list[:]:
         dbn_file = '%s%d_%d_%d.npy'%(result_dir, epoch, train_num, train_l)
         print epoch, train_num

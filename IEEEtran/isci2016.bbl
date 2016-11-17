@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+
+\bibitem{he2015delving}
+K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Delving deep into rectifiers: Surpassing
+  human-level performance on imagenet classification,'' in {\em Proceedings of
+  the IEEE International Conference on Computer Vision}, pp.~1026--1034, 2015.
+
+\bibitem{nessler2013bayesian}
+B.~Nessler, M.~Pfeiffer, L.~Buesing, and W.~Maass, ``Bayesian computation
+  emerges in generic cortical microcircuits through spike-timing-dependent
+  plasticity,'' {\em PLoS Comput Biol}, 2013.
+
+\bibitem{neftci2013event}
+E.~Neftci, S.~Das, B.~Pedroni, K.~Kreutz-Delgado, and G.~Cauwenberghs,
+  ``Event-driven contrastive divergence for spiking neuromorphic systems,''
+  {\em Frontiers in neuroscience}, vol.~7, 2013.
+
+\bibitem{o2016deep}
+P.~O'Connor and M.~Welling, ``Deep spiking networks,'' {\em arXiv preprint},
+  2016.
+
+\bibitem{buesing2011neural}
+L.~Buesing, J.~Bill, B.~Nessler, and W.~Maass, ``Neural dynamics as sampling: a
+  model for stochastic computation in recurrent networks of spiking neurons,''
+  {\em PLoS Comput Biol}, vol.~7, no.~11, p.~e1002211, 2011.
+
+\bibitem{ponulak2010supervised}
+F.~Ponulak and A.~Kasinski, ``Supervised learning in spiking neural networks
+  with resume: sequence learning, classification, and spike shifting,'' {\em
+  Neural Computation}, vol.~22, no.~2, pp.~467--510, 2010.
+
+\bibitem{burbank2015mirrored}
+K.~S. Burbank, ``Mirrored stdp implements autoencoder learning in a network of
+  spiking neurons,'' {\em PLoS Comput Biol}, vol.~11, no.~12, p.~e1004566,
+  2015.
+
+\end{thebibliography}

@@ -322,7 +322,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{STDP Training on Rate-based Spiking Autoencoders}
+\title{Event-Based STDP Training on Spiking Autoencoders}
 
 
 % author names and affiliations
@@ -407,6 +407,34 @@ The results show a recognition capability equivalent to non-spiking implementati
 %\hfill mds
 % 
 %\hfill August 26, 2015
+	%DNN
+	Deep neural network architectures [10] have recently achieved
+	remarkable success in a variety of domains, including image
+	classification [23, 20], speech recognition [7, 6], or more re-
+	cently even game playing [14]. Despite their success, the
+	substantial cost of training and executing these networks
+	has resulted in a resurgence of interest in novel algorith-
+	mic and hardware methods to speed up the computation of
+	deep networks. Inspired by brain-like computation, Spiking
+	Neural Networks (SNNs) have been suggested as one such
+	alternative [4, 18, 16]. Because they perform neuron up-
+	dates in an event-driven and input-triggered manner, they
+	can exhibit greater efficiency, since not all neurons need
+	to be updated every time step, and the latency of classi-
+	fication is very fast. They have been criticized for their
+	inability to match the performance of traditional machine
+	learning on typical benchmarks, but recent work such as [2]
+	and [3] have shown that with proper learning algorithms
+	and tuning, SNNs can achieve equivalent accuracy on ma-
+	chine learning benchmarks as traditional Artificial Neural
+	Networks (ANNs). This is particularly promising for imple-
+	mentations of SNNs on the extraordinarily low-power and
+	efficient computing platforms that the field of neuromorphic
+	engineering has produced [13, 5, 9, 15], and their use to-
+	gether with neuromorphic sensors such as silicon retinas [1]
+	and silicon cochleas [12], which can drive Deep SNNs in real-
+	time [22, 16] with frame-free streams of events.
+	
 	Deep Neural Networks (DNNs) are the most promising research field in computer vision, even exceeding human-level performance on image classification tasks~\cite{he2015delving}.
 	To investigate whether brains might work similarly on vision tasks, these powerful DNN models have been converted to spiking neural networks (SNNs).
 	In addition, the spiking DNN offers the prospect of neuromorphic systems that combine remarkable performance with energy-efficient training and operation.
